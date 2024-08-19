@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seek Servers</title>
+    <style>
+        @import url("https://unpkg.com/lucide-static/font/lucide.css");
+
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Thanh điều hướng */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #444;
+            border-bottom: 2px solid #000;
+            align-items: center;
+        }
+
+        /* Phần bên trái của thanh điều hướng */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Phần bên phải của thanh điều hướng */
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        /* Icon Home */
+        .lucide-house {
+            font-size: 1.5rem;
+            color: #00ff00; /* Màu xanh lá */
+        }
+
+        /* Các icon khác */
+        .lucide-book, .lucide-smartphone, .lucide-computer {
+            font-size: 1.5rem;
+            color: #00ff00; /* Màu xanh lá */
+        }
+
+        /* Home tag */
+        .home-tag {
+            color: white;
+            background-color: red;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: #555;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+
+        /* Các mục trong dropdown */
+        .dropdown-item {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 5px 0;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #777;
+        }
+
+        /* Phần nội dung chính */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .main-content img {
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="lucide lucide-house"></div>
+        </div>
+        <div class="navbar-right">
+            <div class="lucide lucide-book"></div>
+            <div class="home-tag">Home</div>
+            <div class="dropdown">
+                <button class="dropdown-item">
+                    <div class="lucide lucide-smartphone"></div>
+                    Android IOS
+                </button>
+                <button class="dropdown-item">
+                    <div class="lucide lucide-computer"></div>
+                    PC
+                </button>
+                <button class="dropdown-item">Script Bypass</button>
+                <button class="dropdown-item">Discord</button>
+                <button class="dropdown-item">Info</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <img src="banner.gif" alt="Seek Servers">
+    </div>
+</body>
+</html>
