@@ -65,6 +65,16 @@
             cursor: pointer;
         }
 
+        /* Executor tag */
+        .executor-tag {
+            color: white;
+            background-color: green;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         /* Dropdown menu cho Home */
         .dropdown-home {
             display: none; /* Ẩn dropdown khi chưa được nhấn */
@@ -90,7 +100,7 @@
         }
 
         /* Dropdown menu cho Executor */
-        .dropdown {
+        .dropdown-executor {
             display: none; /* Ẩn dropdown khi chưa được nhấn */
             flex-direction: column;
             gap: 5px;
@@ -107,7 +117,7 @@
         }
 
         /* Hiển thị dropdown với animation */
-        .dropdown.show {
+        .dropdown-executor.show {
             display: flex;
             opacity: 1;
             transform: translateY(0);
@@ -148,28 +158,47 @@
 <body>
     <div class="navbar">
         <div class="navbar-left">
+            <!-- Nút Home -->
             <div class="lucide lucide-house" id="homeDropdownToggle"></div>
             <div class="home-tag" id="homeDropdownToggleText">Home</div>
+            <!-- Dropdown menu cho Home -->
             <div class="dropdown-home" id="homeDropdownMenu">
-                <button class="dropdown-item">Android</button>
-                <button class="dropdown-item">IOS</button>
-                <button class="dropdown-item">PC</button>
+                <button class="dropdown-item">
+                    <div class="lucide lucide-file"></div>
+                    Script
+                </button>
+                <button class="dropdown-item">
+                    <div class="lucide lucide-lock"></div>
+                    Bypass
+                </button>
+                <button class="dropdown-item">
+                    <div class="lucide lucide-discord"></div>
+                    Discord
+                </button>
+                <button class="dropdown-item">
+                    <div class="lucide lucide-info"></div>
+                    Info
+                </button>
             </div>
         </div>
         <div class="navbar-right">
-            <div class="lucide lucide-book" id="dropdownToggle"></div>
-            <div class="dropdown" id="dropdownMenu">
+            <!-- Nút Executor -->
+            <div class="lucide lucide-book" id="executorDropdownToggle"></div>
+            <div class="executor-tag" id="executorDropdownToggleText">Executor</div>
+            <!-- Dropdown menu cho Executor -->
+            <div class="dropdown-executor" id="executorDropdownMenu">
                 <button class="dropdown-item">
                     <div class="lucide lucide-smartphone"></div>
-                    Android IOS
+                    Android
+                </button>
+                <button class="dropdown-item">
+                    <div class="lucide lucide-smartphone"></div>
+                    IOS
                 </button>
                 <button class="dropdown-item">
                     <div class="lucide lucide-computer"></div>
                     PC
                 </button>
-                <button class="dropdown-item">Script Bypass</button>
-                <button class="dropdown-item">Discord</button>
-                <button class="dropdown-item">Info</button>
             </div>
         </div>
     </div>
@@ -193,11 +222,16 @@
         });
 
         // JavaScript để bật tắt dropdown với animation cho Executor
-        const dropdownToggle = document.getElementById('dropdownToggle');
-        const dropdownMenu = document.getElementById('dropdownMenu');
+        const executorDropdownToggle = document.getElementById('executorDropdownToggle');
+        const executorDropdownToggleText = document.getElementById('executorDropdownToggleText');
+        const executorDropdownMenu = document.getElementById('executorDropdownMenu');
 
-        dropdownToggle.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('show');
+        executorDropdownToggle.addEventListener('click', () => {
+            executorDropdownMenu.classList.toggle('show');
+        });
+
+        executorDropdownToggleText.addEventListener('click', () => {
+            executorDropdownMenu.classList.toggle('show');
         });
     </script>
 </body>
