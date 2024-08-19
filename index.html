@@ -62,7 +62,7 @@
 
         /* Dropdown menu */
         .dropdown {
-            display: flex;
+            display: none; /* Ẩn dropdown khi chưa được nhấn */
             flex-direction: column;
             gap: 5px;
             position: absolute;
@@ -72,6 +72,16 @@
             padding: 10px;
             border: 1px solid #000;
             border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-10px); /* Bắt đầu từ phía trên */
+        }
+
+        /* Hiển thị dropdown với animation */
+        .dropdown.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Các mục trong dropdown */
@@ -112,9 +122,9 @@
             <div class="lucide lucide-house"></div>
         </div>
         <div class="navbar-right">
-            <div class="lucide lucide-book"></div>
+            <div class="lucide lucide-book" id="dropdownToggle"></div>
             <div class="home-tag">Home</div>
-            <div class="dropdown">
+            <div class="dropdown" id="dropdownMenu">
                 <button class="dropdown-item">
                     <div class="lucide lucide-smartphone"></div>
                     Android IOS
@@ -133,5 +143,15 @@
     <div class="main-content">
         <img src="banner.gif" alt="Seek Servers">
     </div>
+
+    <script>
+        // JavaScript để bật tắt dropdown với animation
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownToggle.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
