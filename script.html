@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Input</title>
+    <style>
+        body {
+            background-image: url('path/to/your/background-image.jpg'); /* Đặt link ảnh nền nếu cần */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            background-color: rgba(68, 68, 68, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            width: 900px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .support-tab {
+            background-color: rgba(34, 34, 34, 0.9);
+            border-radius: 15px;
+            padding: 10px;
+            width: 200px;
+            margin-right: 20px;
+            overflow-y: auto;
+            max-height: 360px;
+        }
+
+        .support-tab h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .support-tab p {
+            color: white;
+            font-size: 16px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .support-tab p:hover {
+            text-decoration: underline;
+        }
+
+        .text-area-container {
+            flex-grow: 1;
+        }
+
+        .text-area {
+            margin-bottom: 20px;
+            overflow-y: auto;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            border: 2px solid #000;
+            padding: 10px;
+            background-color: #222;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            resize: none;
+        }
+
+        textarea:read-only {
+            background-color: #222;
+        }
+
+        .button-area {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            background-color: #222;
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        button:hover {
+            background-color: #555;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blur-bg"></div>
+    <div class="container">
+        <!-- Support Game Tab -->
+        <div class="support-tab">
+            <h3>Support Game</h3>
+            <p>Example 1</p>
+            <p>Example 2</p>
+            <p>Example 3</p>
+            <p>Example 4</p>
+            <p>Example 5</p>
+            <p>Example 6</p>
+            <!-- Thêm nhiều game hơn tại đây -->
+        </div>
+
+        <!-- Main Text Area -->
+        <div class="text-area-container">
+            <div class="text-area">
+                <label for="inputText">Seek Hunter | Game</label>
+                <textarea id="inputText" rows="10" readonly></textarea>
+            </div>
+            <div class="button-area">
+                <button id="copyButton">Copy</button>
+                <button id="keyButton">Key</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function () {
+            var text = document.getElementById('inputText');
+            text.select();
+            document.execCommand('copy');
+            alert('Text copied to clipboard!');
+        });
+
+        document.getElementById('keyButton').addEventListener('click', function () {
+            // Thêm hành động cho nút Key
+            alert('Key button clicked!');
+        });
+    </script>
+</body>
+
+</html>
