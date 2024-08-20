@@ -44,21 +44,21 @@
         /* Icon Home */
         .lucide-house {
             font-size: 1.5rem;
-            color: #ff0000; /* Màu đỏ cho nút Home */
+            color: white; /* Màu đỏ cho nút Home */
             cursor: pointer;
         }
 
         /* Icon Executor */
         .lucide-book {
             font-size: 1.5rem;
-            color: #00ff00; /* Màu xanh lá cho nút Executor */
+            color: black; /* Màu xanh lá cho nút Executor */
             cursor: pointer;
         }
 
         /* Home tag */
         .home-tag {
             color: white;
-            background-color: red;
+            background-color: black;
             padding: 5px 10px;
             border-radius: 5px;
             font-weight: bold;
@@ -67,8 +67,8 @@
 
         /* Executor tag */
         .executor-tag {
-            color: white;
-            background-color: green;
+            color: black;
+            background-color: white;
             padding: 5px 10px;
             border-radius: 5px;
             font-weight: bold;
@@ -159,56 +159,76 @@
     <div class="navbar">
         <div class="navbar-left">
             <!-- Nút Home -->
-            <div class="lucide lucide-house" id="homeDropdownToggle"></div>
-            <div class="home-tag" id="homeDropdownToggleText">Home</div>
+
+            <div class="home-tag" id="homeDropdownToggleText">
+                Home
+                <i data-lucide="house" id="homeDropdownToggle"></i>
+            </div>
             <!-- Dropdown menu cho Home -->
             <div class="dropdown-home" id="homeDropdownMenu">
-                <button class="dropdown-item">
-                    <div class="lucide lucide-file"></div>
-                    Script
-                </button>
-                <button class="dropdown-item">
-                    <div class="lucide lucide-lock"></div>
-                    Bypass
-                </button>
-                <button class="dropdown-item">
-                    <div class="lucide lucide-discord"></div>
-                    Discord
-                </button>
-                <button class="dropdown-item">
-                    <div class="lucide lucide-info"></div>
-                    Info
-                </button>
+                <a href="./home/script.html">
+                    <button class="dropdown-item">
+                            <i data-lucide="file"></i>
+                            Script
+                    </button>
+                </a>
+                <a href="./home/bypass.html">
+                    <button class="dropdown-item" >
+                        <i data-lucide="lock"></i>
+                        Bypass
+                    </button>
+                </a>
+                <a href="./home/invite.html">
+                    <button class="dropdown-item">
+                        <i data-lucide="server"></i>
+                        Discord
+                    </button>
+                </a>
+                <a href="./home/info.html">
+                    <button class="dropdown-item">
+                        <i data-lucide="info"></i>
+                        Info
+                    </button>
+                </a>
             </div>
         </div>
         <div class="navbar-right">
             <!-- Nút Executor -->
-            <div class="lucide lucide-book" id="executorDropdownToggle"></div>
-            <div class="executor-tag" id="executorDropdownToggleText">Executor</div>
+            <div class="executor-tag" id="executorDropdownToggleText">
+                Executor
+                <i data-lucide="book" id="executorDropdownToggle"></i>
+            </div>
             <!-- Dropdown menu cho Executor -->
             <div class="dropdown-executor" id="executorDropdownMenu">
-                <button class="dropdown-item">
-                    <div class="lucide lucide-smartphone"></div>
-                    Android
-                </button>
-                <button class="dropdown-item">
-                    <div class="lucide lucide-smartphone"></div>
-                    IOS
-                </button>
-                <button class="dropdown-item">
-                    <div class="lucide lucide-computer"></div>
-                    PC
-                </button>
+                <a href="./executor/android.html"></a>
+                    <button class="dropdown-item">
+                        <i data-lucide="smartphone"></i>
+                        Android
+                    </button>
+                </a>
+                <a href="./executor/ios.html">
+                    <button class="dropdown-item">
+                        <i data-lucide="smartphone"></i>
+                        IOS
+                    </button>
+                </a>
+                <a href="./executor/pc.html">
+                    <button class="dropdown-item">
+                        <i data-lucide="computer"></i>
+                        PC
+                    </button>
+                </a>
             </div>
         </div>
     </div>
+    
 
     <div class="main-content">
         <img src="banner.gif" alt="Seek Servers">
     </div>
-
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // JavaScript để bật tắt dropdown với animation cho Home
+        lucide.createIcons();
         const homeDropdownToggle = document.getElementById('homeDropdownToggle');
         const homeDropdownToggleText = document.getElementById('homeDropdownToggleText');
         const homeDropdownMenu = document.getElementById('homeDropdownMenu');
