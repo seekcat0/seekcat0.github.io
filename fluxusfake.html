@@ -107,6 +107,9 @@
             let hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
             timer.innerHTML = `Time Elapsed: ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
         }, 1000);
+        let currentUrl = window.location.href
+        let hwid = new URL(currentUrl).searchParams.get("HWID");
+        updateHWID(hwid)
     </script>
 </body>
 </html>
