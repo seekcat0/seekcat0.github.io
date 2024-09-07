@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxus Logger.</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: monospace;
+            background-color: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Create a container
+        let container = document.createElement('div');
+        container.style.position = 'fixed';
+        container.style.top = '50%';
+        container.style.left = '50%';
+        container.style.transform = 'translate(-50%, -50%)'; // Center horizontally and vertically
+        container.style.width = '850px';
+        container.style.height = '600px';
+        container.style.backgroundColor = '#000';
+        container.style.color = '#fff';
+        container.style.padding = '20px';
+        container.style.borderRadius = '10px';
+        container.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)';
+        container.style.fontFamily = 'monospace';
+        container.style.zIndex = '9999';
+        container.style.textAlign = 'center'; // Center content
+
+        // Create an image
+        let img = document.createElement('img');
+        img.src = 'https://cdn.discordapp.com/attachments/1243969033557246024/1259906922019164253/AhvJNNR.png?ex=66dc7d42&is=66db2bc2&hm=1e60e0bee3d30ab72f3c65c9357687b7beab0b40121a1fe507827002ce852b73'; // Replace with your image URL
+        img.style.width = '80px';  // Adjust image size
+        img.style.height = '80px';
+        img.style.marginBottom = '20px';
+
+        // Create a timer
+        let timer = document.createElement('div');
+        timer.id = 'timer';
+        timer.innerHTML = 'Time Elapsed: 00h 00m 00s';
+
+        // Create the "Your HWID" display
+        let hwidDisplay = document.createElement('div');
+        hwidDisplay.id = 'hwid-display';
+        hwidDisplay.innerHTML = 'Your HWID: ""'; // Placeholder for HWID
+        hwidDisplay.style.margin = '10px 0';
+        hwidDisplay.style.fontSize = '18px';
+
+        // Create the "Your key" display
+        let keyDisplay = document.createElement('div');
+        keyDisplay.id = 'key-display';
+        keyDisplay.innerHTML = 'Your key: ""'; // Placeholder for key
+        keyDisplay.style.margin = '10px 0';
+        keyDisplay.style.fontSize = '18px';
+
+        // Create a console log section
+        let consoleLog = document.createElement('div');
+        consoleLog.id = 'console-log';
+        consoleLog.innerHTML = '<b>Console:</b><br>';
+        consoleLog.style.height = '300px';
+        consoleLog.style.overflowY = 'auto';
+        consoleLog.style.backgroundColor = '#111';
+        consoleLog.style.padding = '10px';
+        consoleLog.style.borderRadius = '5px';
+        consoleLog.style.marginTop = '20px';
+        consoleLog.style.textAlign = 'left';
+
+        // Append everything to container
+        container.appendChild(img);
+        container.appendChild(timer);
+        container.appendChild(hwidDisplay);  // Add HWID display
+        container.appendChild(keyDisplay);   // Add key display
+        container.appendChild(consoleLog);
+
+        // Add container to body
+        document.body.appendChild(container);
+
+        // Function to update the HWID display
+        function updateHWID(hwid) {
+            hwidDisplay.innerHTML = `Your HWID: "${hwid}"`;
+        }
+
+        // Function to update the key display
+        function updateKey(key) {
+            keyDisplay.innerHTML = `Your key: "${key}"`;
+        }
+
+        // Function to log messages to the console UI
+        function logInConsole(message) {
+            let logMessage = document.createElement('div');
+            logMessage.innerHTML = message;
+            consoleLog.appendChild(logMessage);
+            consoleLog.scrollTop = consoleLog.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        // Example timer that updates every second
+        let startTime = Date.now();
+        setInterval(function() {
+            let elapsed = Date.now() - startTime;
+            let seconds = Math.floor((elapsed / 1000) % 60);
+            let minutes = Math.floor((elapsed / (1000 * 60)) % 60);
+            let hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
+            timer.innerHTML = `Time Elapsed: ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+        }, 1000);
+    </script>
+</body>
+</html>
