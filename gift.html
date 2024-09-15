@@ -72,114 +72,11 @@
 <div class="container">
     <div class="boxes">
         <div class="box small">
-            <p>Its a source code bypass delta for you, Happy Birthday "FutureThailand".</p>
+            <p>"FutureThailand" nuh uh.</p>
         </div>
         <div class="box">
             <textarea id="textBox" readonly>
-                const { URL } = require("url");
-
-let i = 0
-const platoboost = "https://gateway.platoboost.com/a/8?id=";
-
-function timeConvert(n) {
-  var num = n;
-  var hours = num / 60;
-  var rhours = Math.floor(hours);
-  var minutes = (hours - rhours) * 60;
-  var rminutes = Math.round(minutes);
-  return rhours + " Hours " + rminutes + " Minutes";
-}
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-async function getTurnstileResponse() {
-  let e = "";
-  while (true) {
-    try {
-      if ((e = turnstile.getResponse())) break;
-    } catch (t) {}
-    await sleep(1);
-  }
-  return turnstile.getResponse();
-}
-
-async function delta(id) {
-  try {
-    const fetch = (await import('node-fetch')).default;
-    let response = await fetch(
-      `https://api-gateway.platoboost.com/v1/authenticators/8/${id}`
-    );
-    if (!response.ok) {
-      throw new Error(`Failed Fetch platoboost: ${response.statusText}`);
-    }
-    let alreadyPass = await response.json();
-    if (alreadyPass.key) {
-      timeLeft = timeConvert(alreadyPass.minutesLeft);
-      console.log(
-        `\x1b[32m INFO \x1b[0m Time left:  \x1b[32m${timeLeft}\x1b[0m - KEY: \x1b[32m${alreadyPass.key} \x1b[0m`
-      );
-      return;
-    }
-
-    const captcha = alreadyPass.captcha;
-    response = await fetch(
-      `https://api-gateway.platoboost.com/v1/sessions/auth/8/${id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          captcha: captcha ? await getTurnstileResponse() : "",
-          type: captcha ? "Turnstile" : "",
-        }),
-      }
-    );
-
-    if (!response.ok) {
-	console.log("Link have Hcaptcha. Please solve its")
-    }
-
-    let lootLink = await response.json();
-
-    await sleep(1000);
-    let decodeLootlink = decodeURIComponent(lootLink.redirect);
-    const r = new URL(decodeLootlink).searchParams.get("r");
-    const decodeBase64 = Buffer.from(r, "base64").toString();
-    const tk = new URL(decodeBase64).searchParams.get("tk");
-    await sleep(5000);
-
-    response = await fetch(
-      `https://api-gateway.platoboost.com/v1/sessions/auth/8/${id}/${tk}`,
-      {
-        method: "PUT",
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`Create failed key: ${response.statusText}`);
-    }
-
-    responseplato = await fetch(
-      `https://api-gateway.platoboost.com/v1/authenticators/8/${id}`
-    );
-
-    Pass = await responseplato.json();
-    if (Pass.key) {
-      timeLeft = timeConvert(Pass.minutesLeft);
-      console.log(
-        `\x1b[32m INFO \x1b[0m Time left:  \x1b[32m${timeLeft}\x1b[0m - KEY: \x1b[32m${Pass.key} \x1b[0m`
-      );
-      return;
-    }
-  } catch (error) {
-    console.error(`\x1b[31m EROR \x1b[0mError: ${error.message}`);
-  }
-}
-
-delta("12u738127381901")
+                Rip lol
             </textarea>
         </div>
     </div>
